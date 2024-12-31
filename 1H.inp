@@ -1,0 +1,25 @@
+#Input file for 63Cu->63Ni(*).
+{
+  #Defines the target nucleus interacting with neutrinos - required for xs calculation
+  "target": {
+    "Z":  1,
+    "A":  1
+  },
+  #Defines the final states of the interaction - required for xs calculation
+  "product": {
+    #Levels given in MeV as doubles (trailing periods cause issues)
+    "levels": [0.0],
+    "logfts": [3.0],
+    "2Js": [1]
+  },
+
+  #Defines the spectra to use - optional, only for calculating flux-weighted spectra. Uses data from
+  # https://www.awa.tohoku.ac.jp/~sanshiro/research/geoneutrino/spectrum/geoneutrino-luminosity.knt
+  "spectra": {
+    #Valid options are "geoneutrinos" or "reactor"
+    "type": "geoneutrinos",
+
+    #For "geoneutrinos, options are "238U", "232Th", "235U", "40K", "87Rb", "113Cd", "115In", "138La", "176Lu", "187Re"
+    "sources": ["238U","232Th"]
+  }
+}

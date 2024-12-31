@@ -1,0 +1,39 @@
+#Input file for 63Cu->63Ni(*).
+{
+  #Defines the target nucleus interacting with neutrinos - required for xs calculation
+  "target": {
+    "Z":  29,
+    "A":  63
+  },
+  #Defines the final states of the interaction - required for xs calculation
+  "product": {
+    #Levels given in MeV as doubles (trailing periods cause issues)
+    "levels": [0.0,0.085,0.1556,0.5176,1.0001,1.069],
+    "logfts": [6.7,5.818,5.67,6.197,5.243,6.522],
+    "2Js": [2,5,3,3,1,5]
+  },
+
+  #Defines the spectra to use - optional, only for calculating flux-weighted spectra. Uses data from
+  # https://www.awa.tohoku.ac.jp/~sanshiro/research/geoneutrino/spectrum/geoneutrino-luminosity.knt
+  "spectra": {
+    #Valid options are "geoneutrinos" or "reactor"
+    "type": "geoneutrinos",
+
+    #For "geoneutrinos, options are "238U", "232Th", "235U", "40K", "87Rb", "113Cd", "115In", "138La", "176Lu", "187Re"
+    "sources": ["238U","232Th","40K"]
+  },
+
+  #Defines detector parameters - optional, only for calculating rates
+  "detector": {
+    #In kilograms
+    "mass": 780000,
+    #What fraction of the detector is the element of interest (i.e. loading)
+    "fraction": 0.5,
+    #How many atoms in 1kg of the target material
+    "molar_mass": 9.477e24,
+    #"What fraction of the element is the isotopes of interest (i.e. abundance)
+    "abundance": 1.0,
+    #Exposure length in years
+    "exposure": 10.0
+  }
+}
